@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriTrack - Protein & Calorie Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🍗 MacroMeter</h1>
+            <p>Track Your Protein & Calories</p>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </header>
+
+        <div class="input-section">
+            <label for="preset">Select Food Preset:</label>
+            <select id="preset" class="form-control">
+                <option value="">Custom Entry</option>
+                <option value="chicken_breast" data-protein="0.20" data-calories="0.91">Chicken Breast (Uncooked, per 100g)</option>
+                <option value="cooked_chicken" data-protein="0.30" data-calories="1.50">Cooked Chicken (per 100g)</option>
+                <option value="shawarma" data-protein="0.21" data-calories="1.20">Radwa Shawarma (per 100g)</option>
+                <option value="protein_scoop" data-protein="21" data-calories="110">Protein Scoop (per scoop)</option>
+                <option value="milk" data-protein="0.03" data-calories="0.57">Milk (per 100ml)</option>
+                <option value="tuna" data-protein="30" data-calories="210">Tuna (per can)</option>
+                <option value="usual_milkshake" data-protein="57" data-calories="505">Usual Milkshake (2 scoops protein + 500ml milk)</option>
+                <option value="cooked_rice" data-protein="0.027" data-calories="1.30">Cooked Rice (per 100g)</option>
+                <option value="steak" data-protein="0.26" data-calories="2.50">Steak (per 100g)</option>
+                <option value="egg" data-protein="6" data-calories="70">Egg (per egg)</option>
+                <option value="soft_drink" data-protein="0" data-calories="146">Soft Drink (per can)</option>
+                </select>
+            </select>
+
+            <div class="input-group">
+                <label for="grams">Amount:</label>
+                <input type="number" id="grams" class="form-control" 
+                       placeholder="Enter amount" min="0" max="10000" step="1">
+                <span class="input-hint">(grams/ml/scoops/cans)</span>
+            </div>
+
+            <div class="input-group">
+                <label for="food">Food Name:</label>
+                <input type="text" id="food" class="form-control" 
+                       placeholder="Food item name" maxlength="30">
+            </div>
+
+            <div class="calc-results">
+                <div class="result-item">
+                    <label>Protein (g):</label>
+                    <input type="number" id="protein" class="form-control" readonly>
+                </div>
+                <div class="result-item">
+                    <label>Calories:</label>
+                    <input type="number" id="calories" class="form-control" readonly>
+                </div>
+            </div>
+
+            <button id="add-btn" class="btn-primary">➕ Add Entry</button>
+        </div>
+
+        <div class="summary">
+            <h2>📊 Daily Summary</h2>
+            <div class="summary-items">
+                <div class="summary-item">
+                    <span class="label">Total Protein:</span>
+                    <span id="total-protein" class="value">0</span>g
+                </div>
+                <div class="summary-item">
+                    <span class="label">Total Calories:</span>
+                    <span id="total-calories" class="value">0</span>kcal
+                </div>
+            </div>
+        </div>
+
+        <div class="food-list">
+            <h2>📝 Food Journal</h2>
+            <ul id="food-items"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
